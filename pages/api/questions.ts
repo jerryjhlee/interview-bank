@@ -13,7 +13,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   if (req.method === 'POST') {
-    const { question, company, job_title, date_asked } = req.body
+    const { question, company, job_title, date_asked, email } = req.body
 
     if (!question || !company || !job_title || !date_asked) {
       return res.status(400).json({ error: 'Missing required fields' })
@@ -21,7 +21,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     const { data, error } = await supabase
       .from('questions')
-      .insert([{ question, company, job_title, date_asked }])
+      .insert([{ question, company, job_title, date_asked, email: email || null }])
       .select()
 
     if (error) return res.status(500).json({ error: error.message })

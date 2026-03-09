@@ -4,6 +4,7 @@ create table questions (
   company text not null,
   job_title text not null,
   date_asked date not null,
+  email text,
   created_at timestamptz default now()
 );
 

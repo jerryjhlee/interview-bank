@@ -385,6 +385,7 @@ export default function Home() {
           company: formCompany.trim(),
           job_title: formJobTitle.trim(),
           date_asked: formDateAsked,
+          email: email.trim(),
         }),
       })
       const saved = await res.json()
