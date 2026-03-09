@@ -12,140 +12,8 @@ interface InterviewQuestion {
   createdAt: string
 }
 
-const SEED_DATA: InterviewQuestion[] = [
-  {
-    id: '1',
-    question: 'Design a system that can handle 1 million concurrent users. Walk me through your architecture decisions and how you would scale each component.',
-    company: 'Google',
-    jobTitle: 'Software Engineer',
-    dateAsked: '2024-11-12',
-    createdAt: '2024-11-12',
-  },
-  {
-    id: '2',
-    question: 'Walk me through a DCF analysis and explain what its key limitations are in practice.',
-    company: 'Goldman Sachs',
-    jobTitle: 'Investment Banking Analyst',
-    dateAsked: '2024-10-03',
-    createdAt: '2024-10-03',
-  },
-  {
-    id: '3',
-    question: 'Tell me about a time you used data to drive a complex business decision. What was the outcome?',
-    company: 'McKinsey',
-    jobTitle: 'Business Analyst',
-    dateAsked: '2024-09-18',
-    createdAt: '2024-09-18',
-  },
-  {
-    id: '4',
-    question: 'How would you redesign the Facebook News Feed algorithm to improve engagement without harming mental health metrics?',
-    company: 'Meta',
-    jobTitle: 'Product Manager',
-    dateAsked: '2024-12-01',
-    createdAt: '2024-12-01',
-  },
-  {
-    id: '5',
-    question: 'Describe a time when you had to make a high-stakes decision with incomplete information. How did you handle the uncertainty?',
-    company: 'Amazon',
-    jobTitle: 'Operations Manager',
-    dateAsked: '2024-08-22',
-    createdAt: '2024-08-22',
-  },
-  {
-    id: '6',
-    question: 'How would you design the software architecture for an elevator system in a 100-story skyscraper? What edge cases would you handle?',
-    company: 'Apple',
-    jobTitle: 'Software Engineer',
-    dateAsked: '2024-07-14',
-    createdAt: '2024-07-14',
-  },
-  {
-    id: '7',
-    question: 'If you were the CEO of Microsoft for one year, what would be your top three strategic priorities and why?',
-    company: 'Microsoft',
-    jobTitle: 'Program Manager',
-    dateAsked: '2024-11-28',
-    createdAt: '2024-11-28',
-  },
-  {
-    id: '8',
-    question: 'How do you approach valuing a company with consistently negative earnings? What alternative methodologies would you apply?',
-    company: 'JPMorgan',
-    jobTitle: 'Financial Analyst',
-    dateAsked: '2024-06-09',
-    createdAt: '2024-06-09',
-  },
-  {
-    id: '9',
-    question: 'How would you decide whether to ship a new feature on Netflix? Walk me through your prioritization framework.',
-    company: 'Netflix',
-    jobTitle: 'Senior Product Manager',
-    dateAsked: '2025-01-07',
-    createdAt: '2025-01-07',
-  },
-  {
-    id: '10',
-    question: 'A major client is resistant to the digital transformation strategy you are recommending. How do you approach that conversation and build alignment?',
-    company: 'Deloitte',
-    jobTitle: 'Consulting Analyst',
-    dateAsked: '2024-10-29',
-    createdAt: '2024-10-29',
-  },
-  {
-    id: '11',
-    question: 'Tell me about a time when you were facing a challenge where you had to convince someone with an opposing opinion. How did you approach it and what was the result?',
-    company: 'McKinsey',
-    jobTitle: 'Business Analyst',
-    dateAsked: '2024-09-05',
-    createdAt: '2024-09-05',
-  },
-  {
-    id: '12',
-    question: 'Walk me through how synergies impact a merger model and explain whether they affect enterprise value.',
-    company: 'Goldman Sachs',
-    jobTitle: 'Investment Banking Analyst',
-    dateAsked: '2024-11-14',
-    createdAt: '2024-11-14',
-  },
-  {
-    id: '13',
-    question: 'Tell me about a time where you had to choose between two options and, even though you didn\'t prefer one of them, you understood it was the best choice. How did you evaluate the tradeoffs?',
-    company: 'Goldman Sachs',
-    jobTitle: 'Investment Banking Analyst',
-    dateAsked: '2025-01-22',
-    createdAt: '2025-01-22',
-  },
-  {
-    id: '14',
-    question: 'Name a time you had to navigate an unexpected situation at work. What did you do and what was the outcome?',
-    company: 'Meta',
-    jobTitle: 'Product Manager',
-    dateAsked: '2024-10-17',
-    createdAt: '2024-10-17',
-  },
-  {
-    id: '15',
-    question: 'Tell me about a time a team member wasn\'t pulling their weight on a project. How did you handle it?',
-    company: 'Amazon',
-    jobTitle: 'Software Engineer',
-    dateAsked: '2025-02-03',
-    createdAt: '2025-02-03',
-  },
-  {
-    id: '16',
-    question: 'Talk about a time when you worked to achieve something that was outside your comfort zone. What did you learn?',
-    company: 'McKinsey',
-    jobTitle: 'Associate',
-    dateAsked: '2024-08-11',
-    createdAt: '2024-08-11',
-  },
-]
-
 const PREVIEW_COUNT = 1
 const STORAGE_KEY = 'ib_unlocked'
-const QUESTIONS_KEY = 'ib_questions'
 
 type SortField = 'dateAsked' | 'company' | 'jobTitle'
 type SortDir = 'asc' | 'desc'
@@ -278,7 +146,7 @@ export default function Home() {
     fetch('/api/questions')
       .then((r) => r.json())
       .then((data) => {
-        if (Array.isArray(data) && data.length > 0) {
+        if (Array.isArray(data)) {
           const mapped: InterviewQuestion[] = data.map((q: {
             id: string; question: string; company: string;
             job_title: string; date_asked: string; created_at: string;
@@ -291,11 +159,9 @@ export default function Home() {
             createdAt: q.created_at,
           }))
           setQuestions(mapped)
-        } else {
-          setQuestions(SEED_DATA)
         }
       })
-      .catch(() => setQuestions(SEED_DATA))
+      .catch(() => {})
   }, [])
 
   const filteredAndSorted = useMemo(() => {

@@ -1,0 +1,17 @@
+insert into questions (question, company, job_title, date_asked) values
+  ('Design a system that can handle 1 million concurrent users. Walk me through your architecture decisions and how you would scale each component.', 'Google', 'Software Engineer', '2024-11-12'),
+  ('Walk me through a DCF analysis and explain what its key limitations are in practice.', 'Goldman Sachs', 'Investment Banking Analyst', '2024-10-03'),
+  ('Tell me about a time you used data to drive a complex business decision. What was the outcome?', 'McKinsey', 'Business Analyst', '2024-09-18'),
+  ('How would you redesign the Facebook News Feed algorithm to improve engagement without harming mental health metrics?', 'Meta', 'Product Manager', '2024-12-01'),
+  ('Describe a time when you had to make a high-stakes decision with incomplete information. How did you handle the uncertainty?', 'Amazon', 'Operations Manager', '2024-08-22'),
+  ('How would you design the software architecture for an elevator system in a 100-story skyscraper? What edge cases would you handle?', 'Apple', 'Software Engineer', '2024-07-14'),
+  ('If you were the CEO of Microsoft for one year, what would be your top three strategic priorities and why?', 'Microsoft', 'Program Manager', '2024-11-28'),
+  ('How do you approach valuing a company with consistently negative earnings? What alternative methodologies would you apply?', 'JPMorgan', 'Financial Analyst', '2024-06-09'),
+  ('How would you decide whether to ship a new feature on Netflix? Walk me through your prioritization framework.', 'Netflix', 'Senior Product Manager', '2025-01-07'),
+  ('A major client is resistant to the digital transformation strategy you are recommending. How do you approach that conversation and build alignment?', 'Deloitte', 'Consulting Analyst', '2024-10-29'),
+  ('Tell me about a time when you were facing a challenge where you had to convince someone with an opposing opinion. How did you approach it and what was the result?', 'McKinsey', 'Business Analyst', '2024-09-05'),
+  ('Walk me through how synergies impact a merger model and explain whether they affect enterprise value.', 'Goldman Sachs', 'Investment Banking Analyst', '2024-11-14'),
+  ('Tell me about a time where you had to choose between two options and, even though you didn''t prefer one of them, you understood it was the best choice. How did you evaluate the tradeoffs?', 'Goldman Sachs', 'Investment Banking Analyst', '2025-01-22'),
+  ('Name a time you had to navigate an unexpected situation at work. What did you do and what was the outcome?', 'Meta', 'Product Manager', '2024-10-17'),
+  ('Tell me about a time a team member wasn''t pulling their weight on a project. How did you handle it?', 'Amazon', 'Software Engineer', '2025-02-03'),
+  ('Talk about a time when you worked to achieve something that was outside your comfort zone. What did you learn?', 'McKinsey', 'Associate', '2024-08-11');
