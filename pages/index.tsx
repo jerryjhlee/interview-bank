@@ -204,12 +204,13 @@ function SortButton({
   )
 }
 
-function QuestionCard({ q, index, locked }: { q: InterviewQuestion; index: number; locked: boolean }) {
+function QuestionCard({ q, index, locked, onUnlock }: { q: InterviewQuestion; index: number; locked: boolean; onUnlock?: () => void }) {
   return (
     <div
       className={`relative bg-white rounded-2xl p-5 card-shadow border border-slate-100 transition-all ${
-        locked ? 'select-none' : ''
+        locked ? 'select-none cursor-pointer' : ''
       }`}
+      onClick={locked ? onUnlock : undefined}
     >
       {locked && (
         <div className="absolute inset-0 rounded-2xl z-10 flex items-center justify-center bg-white/70 backdrop-blur-[3px]">
@@ -510,7 +511,7 @@ export default function Home() {
                 {!unlocked && lockedQuestions.length > 0 && (
                   <>
                     {lockedQuestions.slice(0, 3).map((q, i) => (
-                      <QuestionCard key={q.id} q={q} index={i + PREVIEW_COUNT} locked={true} />
+                      <QuestionCard key={q.id} q={q} index={i + PREVIEW_COUNT} locked={true} onUnlock={() => setShowModal(true)} />
                     ))}
 
                     <div className="rounded-2xl bg-gradient-to-b from-white to-slate-50 border-2 border-dashed border-teal-200 p-8 text-center mt-2">
