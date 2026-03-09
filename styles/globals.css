@@ -1,27 +1,63 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --teal: #2a8176;
+  --dark-slate-blue: #073b5d;
+  --cadet-blue: #5ea59c;
+  --mint-cream: #e5f2ea;
+  --light-green: #f8fefa;
+  --pale-turquoise: #b6dbc4;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: #f8fefa;
+  color: #073b5d;
+}
+
+.gradient-hero {
+  background: linear-gradient(135deg, #073b5d 0%, #0a5478 100%);
+}
+
+.card-shadow {
+  box-shadow: 0 1px 3px rgba(7,59,93,0.07), 0 4px 16px rgba(7,59,93,0.05);
+}
+
+.btn-primary {
+  background-color: #2a8176;
+  color: #fff;
+}
+.btn-primary:hover {
+  background-color: #5ea59c;
+}
+
+.tag-company {
+  background-color: #e5f2ea;
+  color: #2a8176;
+  border: 1px solid #b6dbc4;
+}
+
+.sort-active {
+  background-color: #2a8176;
+  color: #fff;
+}
+
+.sort-inactive {
+  background-color: #fff;
+  color: #5e606e;
+  border: 1px solid #c4c4c4;
+}
+.sort-inactive:hover {
+  border-color: #5ea59c;
+  color: #2a8176;
+}
+
+.unlock-border {
+  border: 2px dashed #b6dbc4;
+  background: linear-gradient(to bottom, #fff, #f8fefa);
+}
+
+.badge-unlocked {
+  background-color: #e5f2ea;
+  color: #2a8176;
+  border: 1px solid #b6dbc4;
 }
